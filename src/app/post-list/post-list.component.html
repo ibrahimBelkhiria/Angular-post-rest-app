@@ -1,0 +1,28 @@
+<br>
+<table class="table table-striped">
+  <thead>
+  <tr>
+
+    <th scope="col">Title</th>
+    <th scope="col">Description</th>
+
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let p of posts;let i =index">
+
+    <td>{{p.title}}</td>
+    <td>{{p.description}}</td>
+
+    <td>
+      <button class="btn btn-primary" (click)="updateEvent(p)">update</button>
+      <button class="btn btn-danger" (click)="deleteEvent(p,i)">Delete</button>
+      <button class="btn btn-default" (click)="showEvent(p)">show Details</button>
+
+    </td>
+  </tr>
+
+  </tbody>
+</table>
+
+
