@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {UserService} from '../user.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+
+
+  constructor(private userService: UserService) {
+   /* this.authenticated = userService.isAuthenticated();
+    this.isAdmin = userService.isAdmin();*/
+  }
 
   ngOnInit() {
   }
+    isAuthenticated(): boolean {
+      return this.userService.isAuthenticated();
 
+    }
+
+    isAdmin(): boolean {
+    console.log(this.userService.isAdmin());
+    return this.userService.isAdmin();
+    }
+
+  logout() {
+    this.userService.logout();
+  }
 }
