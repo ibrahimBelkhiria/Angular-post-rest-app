@@ -8,7 +8,7 @@ import {Post} from './post/Post';
 export class PostService {
 
    private URL = 'http://localhost:8080/api';
-  constructor(private http: HttpClient, private ref: ApplicationRef) { }
+  constructor(private http: HttpClient) { }
 
   getPosts(): Observable<Post[]> {
     return this.http.get<Post[]>(this.URL + '/posts');

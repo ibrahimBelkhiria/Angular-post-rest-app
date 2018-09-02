@@ -17,9 +17,11 @@ import {JwtModule} from '@auth0/angular-jwt';
 import { LoginComponent } from './login/login.component';
 import {AuthGuard} from './guards/auth.guard';
 import {AdminGuard} from './guards/admin.guard';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
+  {path: '' , component: HomeComponent},
   {path: 'post', component: PostComponent, canActivate: [AuthGuard]},
   {path: 'post/detail/:id', component : PostDetailComponent},
   {path: 'post/update/:id', component: UpdatePostComponent},
@@ -41,6 +43,7 @@ export function tokenGetter() {
     AdminComponent,
     PostListComponent,
     LoginComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

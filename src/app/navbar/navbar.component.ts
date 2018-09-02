@@ -18,12 +18,13 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
   }
     isAuthenticated(): boolean {
+    console.log('is authenticated: ' + this.userService.isAuthenticated());
       return this.userService.isAuthenticated();
 
     }
 
     isAdmin(): boolean {
-    console.log(this.userService.isAdmin());
+    console.log('is admin: ' + this.userService.isAdmin());
     return this.userService.isAdmin();
     }
 

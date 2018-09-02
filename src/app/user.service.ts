@@ -8,7 +8,7 @@ export class UserService {
   user: string;
   role: string;
   token: string;
-  constructor() {
+  constructor(private jwtHelper: JwtHelperService ) {
 
     if (this.isAuthenticated()) {
       this.token = localStorage.getItem('access_token');
@@ -18,10 +18,11 @@ export class UserService {
 
   }
 
-  jwtHelper: JwtHelperService = new JwtHelperService();
+
 
   isAuthenticated() {
     if (localStorage.getItem('access_token') != null) {
+      this.role = this.jwtHelper.decodeToken(localStorage.getItem('access_token')).scopes;
       return true;
     } else {
       return false;
